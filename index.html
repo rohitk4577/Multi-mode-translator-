@@ -285,7 +285,7 @@
                 </nav>
 
                 <div id="language-translator" class="tab-content flex-grow">
-                    <div class="relative grid grid-cols-1 md:grid-cols-2 gap-6 h-full items-stretch">
+                     <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 h-full items-stretch">
                         <div class="flex flex-col gap-3">
                             <select id="source-lang" class="p-2 w-full sm:w-auto self-start"></select>
                             <div class="relative flex-grow flex flex-col">
@@ -298,9 +298,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 my-4 md:my-0">
-                            <button id="swap-btn" class="swap-btn z-10 p-3 rounded-full shadow-lg"><i data-lucide="repeat"></i></button>
+
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+                            <button id="swap-btn" class="swap-btn p-3 rounded-full shadow-lg"><i data-lucide="repeat"></i></button>
                         </div>
+                        
                         <div class="flex flex-col gap-3">
                             <select id="target-lang" class="p-2 w-full sm:w-auto self-start"></select>
                             <div id="output-container" class="relative flex-grow flex flex-col">
@@ -647,7 +649,7 @@
             document.getElementById('tap-space').addEventListener('click', () => {
                 elements.morseInput.value += elements.morseInput.value.endsWith(' ') ? '/ ' : ' ';
                 translateFromMorse();
-});
+            });
             document.getElementById('tap-backspace').addEventListener('click', () => {
                 elements.morseInput.value = elements.morseInput.value.slice(0, -1);
                 translateFromMorse();
