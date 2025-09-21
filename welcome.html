@@ -9,8 +9,8 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #e3f2fd; /* A lighter, softer blue */
-            color: #333;
+            background: #000; /* Black background for space */
+            color: #f0e6ff; /* Light Lavender */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -18,29 +18,73 @@
             margin: 0;
             text-align: center;
             padding: 20px;
+            overflow: hidden;
         }
+
+        /* --- Starfield Background --- */
+        @keyframes move-stars {
+            from { transform: translateY(0); }
+            to { transform: translateY(-2000px); }
+        }
+
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 200%; /* Taller to allow for scrolling animation */
+            background-repeat: repeat;
+            background-position: 0 0;
+        }
+
+        #stars1 {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><circle cx="10%" cy="10%" r="1" fill="white"/><circle cx="40%" cy="30%" r="1" fill="white"/><circle cx="80%" cy="60%" r="1" fill="white"/><circle cx="60%" cy="90%" r="1" fill="white"/></svg>');
+            background-size: 500px 500px;
+            animation: move-stars 150s linear infinite;
+        }
+
+        #stars2 {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><circle cx="20%" cy="50%" r="2" fill="white"/><circle cx="70%" cy="20%" r="2" fill="white"/><circle cx="90%" cy="80%" r="2" fill="white"/></svg>');
+            background-size: 1000px 1000px;
+            animation: move-stars 100s linear infinite;
+        }
+
+        #stars3 {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><circle cx="50%" cy="50%" r="3" fill="white"/><circle cx="95%" cy="10%" r="3" fill="white"/></svg>');
+            background-size: 1500px 1500px;
+            animation: move-stars 75s linear infinite;
+        }
+        /* --- End Starfield --- */
+
         .container {
             max-width: 800px;
             width: 100%;
             padding: 40px;
-            background-color: #ffffff;
+            background-color: rgba(15, 15, 25, 0.75); /* Translucent dark blue */
             border-radius: 1.5rem;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-            border: 1px solid #bbdefb;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+            border: 1px solid #00ffff;
+            z-index: 1;
+            backdrop-filter: blur(5px);
         }
         h1 {
-            font-size: 2.8rem;
+            font-size: 3.5rem;
             font-weight: 700;
-            color: #1e88e5; /* A stronger blue */
-            margin-bottom: 1rem;
+            color: #f0e6ff; /* Softer white */
+            /* Less intense neon glow */
+            text-shadow: 0 0 10px rgba(255, 0, 255, 0.7), 0 0 20px rgba(255, 0, 255, 0.5);
+            margin-bottom: 1.5rem;
+            animation: float 6s ease-in-out infinite;
         }
         p {
-            font-size: 1.1rem;
-            color: #555;
+            font-size: 1.2rem;
+            color: #00ffff; /* Neon Cyan */
             margin-bottom: 2.5rem;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            text-shadow: 0 0 5px rgba(0, 255, 255, 0.7);
+            animation: float 6s ease-in-out infinite 1s; /* Delayed start */
         }
         .options-grid {
             display: grid;
@@ -49,31 +93,37 @@
             margin-top: 2rem;
         }
         .option-card {
-            background-color: #f8faff;
+            background-color: transparent;
             padding: 25px;
             border-radius: 1rem;
-            border: 1px solid #dbeafe;
+            border: 1px solid #00ffff;
             text-decoration: none;
             color: inherit;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
         }
         .option-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(30, 136, 229, 0.15);
+            transform: translateY(-10px);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            background-color: rgba(0, 255, 255, 0.05);
         }
         .option-card i {
-            color: #1e88e5;
+            color: #00ffff;
             margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+        .option-card:hover i {
+            transform: scale(1.1);
         }
         .option-card h3 {
             font-size: 1.2rem;
             font-weight: 600;
-            color: #1e88e5;
+            color: #00ffff;
             margin: 0;
+            text-shadow: 0 0 3px rgba(0, 255, 255, 0.7);
         }
         .main-footer {
             position: absolute;
@@ -81,31 +131,42 @@
             width: 100%;
             text-align: center;
             font-size: 0.9rem;
-            color: #777;
+            color: #a799b7;
+            z-index: 2;
         }
         .main-footer a {
-            color: #1e88e5;
+            color: #00ffff;
             text-decoration: none;
+        }
+        /* Floating Animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
         }
     </style>
 </head>
 <body>
+    <div id="stars1" class="stars"></div>
+    <div id="stars2" class="stars"></div>
+    <div id="stars3" class="stars"></div>
+
     <div class="container">
-        <h1>Welcome to the Multi-Mode Translator</h1>
-        <p>Your one-stop solution for seamless translations. Choose your mode to get started.</p>
+        <h1>Welcome, Traveler</h1>
+        <p>Unlock universal communication. Voice, text, or signal—your message will be understood. Select your portal to begin.</p>
         
         <div class="options-grid">
             <a href="index.html?tab=language" class="option-card">
                 <i data-lucide="languages" size="40"></i>
-                <h3>Language Translator</h3>
+                <h3>Translate Languages</h3>
             </a>
             <a href="index.html?tab=eng-to-morse" class="option-card">
                 <i data-lucide="arrow-right-left" size="40"></i>
-                <h3>English to Morse</h3>
+                <h3>Encode Morse</h3>
             </a>
             <a href="index.html?tab=morse-to-eng" class="option-card">
                 <i data-lucide="arrow-left-right" size="40"></i>
-                <h3>Morse to English</h3>
+                <h3>Decode Morse</h3>
             </a>
         </div>
     </div>
