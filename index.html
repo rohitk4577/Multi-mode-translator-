@@ -256,6 +256,10 @@
         .dark .main-footer a {
             color: #00ffff;
         }
+        .credits {
+            font-size: 0.75rem;
+            opacity: 0.6;
+        }
     </style>
 </head>
 <body>
@@ -278,7 +282,7 @@
         
         <main class="w-full max-w-5xl mx-auto">
             <div class="translator-card shadow-lg p-6 sm:p-8 min-h-[500px] flex flex-col">
-                <nav id="tabs" class="flex justify-center items-center p-1 mb-6 bg-gray-100 dark:bg-gray-900 rounded-xl space-x-1">
+                <nav id="tabs" class="flex justify-center items-center p-1 mb-4 bg-gray-100 dark:bg-gray-900 rounded-xl space-x-1">
                     <button data-tab="language" class="tab-btn active w-1/3 py-2">Language</button>
                     <button data-tab="eng-to-morse" class="tab-btn w-1/3 py-2">English to Morse</button>
                     <button data-tab="morse-to-eng" class="tab-btn w-1/3 py-2">Morse to English</button>
@@ -289,9 +293,11 @@
                         <div class="flex flex-col gap-3">
                             <select id="source-lang" class="p-2 w-full sm:w-auto self-start"></select>
                             <div class="relative flex-grow flex flex-col">
-                                <textarea id="source-text" class="w-full flex-grow p-3 text-lg" placeholder="Enter text..."></textarea>
+                                <textarea id="source-text" class="w-full flex-grow p-3 text-lg resize-none" placeholder="Enter text..."></textarea>
                                 <div class="char-counter absolute bottom-2 right-3"><span id="char-count">0</span> / 5000</div>
                                 <div class="absolute top-3 right-3 flex items-center space-x-2">
+                                    <input type="file" id="file-input-lang" class="hidden" accept=".txt">
+                                    <button class="icon-btn p-2" id="upload-btn-lang" title="Upload .txt File"><i data-lucide="file-up"></i></button>
                                     <button class="icon-btn p-2" id="mic-btn" title="Use Microphone"><i data-lucide="mic"></i></button>
                                     <button class="icon-btn p-2" id="paste-btn" title="Paste"><i data-lucide="clipboard-paste"></i></button>
                                     <button class="icon-btn p-2" id="clear-btn" title="Clear"><i data-lucide="x"></i></button>
@@ -306,7 +312,7 @@
                         <div class="flex flex-col gap-3">
                             <select id="target-lang" class="p-2 w-full sm:w-auto self-start"></select>
                             <div id="output-container" class="relative flex-grow flex flex-col">
-                                <textarea id="target-text" class="w-full flex-grow p-3 text-lg" placeholder="Translation" readonly></textarea>
+                                <textarea id="target-text" class="w-full flex-grow p-3 text-lg resize-none" placeholder="Translation" readonly></textarea>
                                 <div class="absolute top-3 right-3 flex items-center space-x-2">
                                     <button class="icon-btn p-2" id="copy-btn" title="Copy"><i data-lucide="copy"></i></button>
                                     <button class="icon-btn p-2" id="speak-btn" title="Listen"><i data-lucide="volume-2"></i></button>
@@ -321,8 +327,10 @@
                         <div class="flex flex-col gap-3">
                             <h3 class="font-semibold text-lg">English</h3>
                             <div class="relative flex-grow flex flex-col">
-                                <textarea id="eng-input" class="w-full flex-grow p-3 text-lg" placeholder="Enter English text..."></textarea>
+                                <textarea id="eng-input" class="w-full flex-grow p-3 text-lg resize-none" placeholder="Enter English text..."></textarea>
                                 <div class="absolute top-3 right-3 flex items-center space-x-2">
+                                    <input type="file" id="file-input-morse" class="hidden" accept=".txt">
+                                    <button class="icon-btn p-2" id="upload-btn-morse" title="Upload .txt File"><i data-lucide="file-up"></i></button>
                                     <button class="icon-btn p-2" id="speak-eng-input-btn" title="Listen"><i data-lucide="volume-2"></i></button>
                                     <button class="icon-btn p-2" id="mic-btn-morse" title="Use Microphone"><i data-lucide="mic"></i></button>
                                     <button class="icon-btn p-2" id="paste-btn-morse" title="Paste"><i data-lucide="clipboard-paste"></i></button>
@@ -333,10 +341,9 @@
                         <div class="flex flex-col gap-3">
                             <h3 class="font-semibold text-lg">Morse Code</h3>
                             <div class="relative flex-grow flex flex-col">
-                                <textarea id="morse-output" class="w-full flex-grow p-3 text-lg" placeholder="--- .-. ... . / -.-. --- -.. ." readonly></textarea>
+                                <textarea id="morse-output" class="w-full flex-grow p-3 text-lg resize-none" placeholder="--- .-. ... . / -.-. --- -.. ." readonly></textarea>
                                 <div class="absolute top-3 right-3 flex items-center space-x-2">
                                     <button class="icon-btn p-2" id="copy-morse-btn" title="Copy Morse"><i data-lucide="copy"></i></button>
-                                    <button class="icon-btn p-2" id="play-morse-btn" title="Play Morse Sound"><i data-lucide="play-circle"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -353,12 +360,12 @@
                                 <button id="tap-space" class="morse-tap-btn text-base">Space</button>
                                 <button id="tap-backspace" class="morse-tap-btn text-base" title="Backspace"><i data-lucide="delete"></i></button>
                             </div>
-                            <textarea id="morse-input" class="w-full flex-grow p-3 text-lg" placeholder="Tap or type Morse Code..."></textarea>
+                            <textarea id="morse-input" class="w-full flex-grow p-3 text-lg resize-none" placeholder="Tap or type Morse Code..."></textarea>
                         </div>
                         <div class="flex flex-col gap-3">
                             <h3 class="font-semibold text-lg">English</h3>
                             <div class="relative flex-grow flex flex-col">
-                                <textarea id="eng-output" class="w-full flex-grow p-3 text-lg" placeholder="English text" readonly></textarea>
+                                <textarea id="eng-output" class="w-full flex-grow p-3 text-lg resize-none" placeholder="English text" readonly></textarea>
                                  <div class="absolute top-3 right-3 flex items-center space-x-2">
                                         <button class="icon-btn p-2" id="copy-eng-btn" title="Copy English"><i data-lucide="copy"></i></button>
                                         <button class="icon-btn p-2" id="speak-eng-btn" title="Listen"><i data-lucide="volume-2"></i></button>
@@ -390,7 +397,11 @@
         </div>
 
         <footer class="main-footer">
-            <p>For support, contact our <strong>Customer Care</strong> at <a href="mailto:support@multimodetranslator.com">support@multimodetranslator.com</a></p>
+            <p>
+                For support, contact our <strong>Customer Care</strong> at <a href="mailto:support@multimodetranslator.com">support@multimodetranslator.com</a>
+                <br>
+                <span class="credits">By Rohit, Leno & Rahul (RLR)</span>
+            </p>
         </footer>
     </div>
 
@@ -435,6 +446,8 @@
                 speakBtn: document.getElementById('speak-btn'),
                 micBtn: document.getElementById('mic-btn'),
                 outputContainer: document.getElementById('output-container'),
+                fileInputLang: document.getElementById('file-input-lang'),
+                uploadBtnLang: document.getElementById('upload-btn-lang'),
                 
                 // Morse Translators
                 engInput: document.getElementById('eng-input'),
@@ -449,6 +462,8 @@
                 playMorseBtn: document.getElementById('play-morse-btn'),
                 copyEngBtn: document.getElementById('copy-eng-btn'),
                 speakEngBtn: document.getElementById('speak-eng-btn'),
+                fileInputMorse: document.getElementById('file-input-morse'),
+                uploadBtnMorse: document.getElementById('upload-btn-morse'),
                 
                 // History Modal
                 historyBtn: document.getElementById('history-btn'),
@@ -518,7 +533,8 @@
             }
 
             // --- Language Translator Logic ---
-            const languages = { 'en': 'English', 'es': 'Spanish', 'fr': 'French', 'de': 'German', 'it': 'Italian', 'pt': 'Portuguese', 'ru': 'Russian', 'ja': 'Japanese', 'ko': 'Korean', 'zh-CN': 'Chinese (Simplified)', 'ar': 'Arabic', 'hi': 'Hindi' };
+            const languages = {'en': 'English', 'ta': 'Tamil', 'te': 'Telugu', 'hi': 'Hindi', 'es': 'Spanish', 'fr': 'French', 'de': 'German', 'it': 'Italian', 'pt': 'Portuguese', 'ru': 'Russian', 'ja': 'Japanese', 'ko': 'Korean', 'zh-CN': 'Chinese (Simplified)', 'ar': 'Arabic', 'bn': 'Bengali', 'gu': 'Gujarati', 'kn': 'Kannada', 'ml': 'Malayalam', 'mr': 'Marathi', 'pa': 'Punjabi', 'ur': 'Urdu'};
+            
             Object.entries(languages).forEach(([code, name]) => {
                 elements.sourceLang.add(new Option(name, code));
                 elements.targetLang.add(new Option(name, code));
@@ -566,6 +582,60 @@
             }
 
             elements.speakBtn.addEventListener('click', () => speakText(elements.targetText.value, elements.targetLang.value));
+            
+             // --- File Upload Logic ---
+             function handleFileUpload(file, targetTextArea, isMorse = false) {
+                if (!file) return;
+
+                if (file.type !== 'text/plain') {
+                    showToast('Please upload a valid .txt file.', true);
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = async (e) => {
+                    const text = e.target.result;
+                    if (text.length > 5000) {
+                        showToast('File content exceeds 5000 character limit.', true);
+                        return;
+                    }
+
+                    if (isMorse) {
+                        try {
+                            const response = await fetch(`${BACKEND_URL}/detect-language`, {
+                                method: 'POST',
+                                headers: {'Content-Type': 'application/json'},
+                                body: JSON.stringify({ text: text })
+                            });
+                            const data = await response.json();
+                            if (data.language && data.language.toLowerCase().trim() !== 'english') {
+                                showToast('Error: Only English text files can be converted to Morse code.', true);
+                                return;
+                            }
+                        } catch (err) {
+                             showToast('Could not verify file language.', true);
+                             return;
+                        }
+                    }
+
+                    targetTextArea.value = text;
+                    targetTextArea.dispatchEvent(new Event('input'));
+                };
+                reader.onerror = () => showToast('Error reading file.', true);
+                reader.readAsText(file);
+            }
+
+            elements.uploadBtnLang.addEventListener('click', () => elements.fileInputLang.click());
+            elements.fileInputLang.addEventListener('change', (e) => {
+                handleFileUpload(e.target.files[0], elements.sourceText, false);
+                e.target.value = null; // Reset file input
+            });
+
+            elements.uploadBtnMorse.addEventListener('click', () => elements.fileInputMorse.click());
+            elements.fileInputMorse.addEventListener('change', (e) => {
+                handleFileUpload(e.target.files[0], elements.engInput, true);
+                e.target.value = null; // Reset file input
+            });
             
             // --- Speech Recognition Logic ---
             const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -735,10 +805,44 @@
                 elements.historyModal.classList.add('hidden');
             });
 
-            // Placeholder for Morse sound playback function
+            // --- Morse Sound Playback ---
             function playMorseCode(morseCode) {
-                showToast("Morse sound playback is not yet implemented.", true);
+                if (!morseCode || !(window.AudioContext || window.webkitAudioContext)) {
+                    if (morseCode) showToast("Web Audio API not supported in this browser.", true);
+                    return;
+                }
+                
+                const context = new (window.AudioContext || window.webkitAudioContext)();
+                let time = context.currentTime;
+                const dotDuration = 0.1;
+                const dashDuration = dotDuration * 3;
+                const symbolGap = dotDuration;
+                const letterGap = dotDuration * 3;
+                const wordGap = dotDuration * 7;
+
+                for (const char of morseCode) {
+                    if (char === '.') {
+                        const oscillator = context.createOscillator();
+                        oscillator.frequency.value = 750;
+                        oscillator.connect(context.destination);
+                        oscillator.start(time);
+                        oscillator.stop(time + dotDuration);
+                        time += dotDuration + symbolGap;
+                    } else if (char === '-') {
+                        const oscillator = context.createOscillator();
+                        oscillator.frequency.value = 750;
+                        oscillator.connect(context.destination);
+                        oscillator.start(time);
+                        oscillator.stop(time + dashDuration);
+                        time += dashDuration + symbolGap;
+                    } else if (char === ' ') {
+                        time += letterGap - symbolGap;
+                    } else if (char === '/') {
+                        time += wordGap - letterGap;
+                    }
+                }
             }
+             elements.playMorseBtn.addEventListener('click', () => playMorseCode(elements.morseOutput.value));
         });
     </script>
 </body>

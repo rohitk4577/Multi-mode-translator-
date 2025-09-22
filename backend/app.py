@@ -7,17 +7,11 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from dotenv import load_dotenv
 
-# This is a new utility import, make sure you have this file
-# from utils.json_handler import save_result, read_results
+# Make sure you have a utils folder with json_handler.py
+from utils.json_handler import save_result, read_results
 
 # Load environment variables from a .env file
 load_dotenv()
-
-UPLOAD_DIR = "uploads"
-os.makedirs(UPLOAD_DIR, exist_ok=True)
-
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger("ai-translator-backend")
 
 app = Flask(__name__)
 CORS(app)  # This enables Cross-Origin Resource Sharing
@@ -50,7 +44,6 @@ def translate():
         response = model.generate_content(prompt)
         translated_text = response.text.strip()
         
-        # Prepare data in a simple format for saving to history
         result_to_save = {
             "id": uuid.uuid4().hex,
             "timestamp": datetime.datetime.utcnow().isoformat() + "Z",
@@ -59,19 +52,40 @@ def translate():
             "original_text": text_to_translate,
             "translated_text": translated_text
         }
-        # save_result(result_to_save)
+        save_result(result_to_save)
         
         return jsonify({"translated_text": translated_text})
 
     except Exception as e:
-        logger.exception(f"An error occurred during translation: {e}")
+        logging.exception(f"An error occurred during translation: {e}")
         return jsonify({"error": "An internal error occurred during translation."}), 500
+
+# NEW ENDPOINT FOR LANGUAGE DETECTION
+@app.route('/detect-language', methods=['POST'])
+def detect_language():
+    try:
+        data = request.json
+        text = data.get('text')
+        if not text:
+            return jsonify({"error": "Text is required"}), 400
+        
+        genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+        model = genai.GenerativeModel('gemini-1.5-flash')
+        
+        prompt = f"What language is the following text? Respond with only the name of the language (e.g., 'English', 'Spanish').\n\nText: \"{text}\""
+        
+        response = model.generate_content(prompt)
+        detected_language = response.text.strip()
+        
+        return jsonify({"language": detected_language})
+    except Exception as e:
+        logging.exception(f"An error occurred during language detection: {e}")
+        return jsonify({"error": "Could not detect language."}), 500
 
 @app.route('/results/', methods=['GET'])
 def get_results():
-    # return jsonify({"status": "success", "data": read_results()})
-    return jsonify({"status": "success", "data": []})
-
+    return jsonify({"status": "success", "data": read_results()})
+    
 @app.route('/eng-to-morse', methods=['POST'])
 def eng_to_morse():
     data = request.json
