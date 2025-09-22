@@ -1,105 +1,103 @@
-# Multi-Mode AI Translator
+# 🌌 Multi-Mode AI Translator 🚀
 
-A versatile and modern translation tool designed to bridge communication gaps. This application provides seamless language translation powered by Google's Gemini AI, alongside robust Morse code encoding and decoding functionalities. The user-friendly interface supports multiple input methods, including text and voice, ensuring a smooth and intuitive experience.
+Welcome, Traveler, to the ultimate communication nexus. This isn't just a translator; it's a bridge between languages, signals, and eras. Whether you're deciphering ancient Morse code or speaking to a new friend across the globe, this tool ensures your message is always understood.
 
----
-
-## ✨ Features
-
-* **🌐 Language Translation**: Translate text between numerous languages, including English, Spanish, French, Hindi, and more, leveraging the power of the Google Gemini API.
-* **🔠 Morse Code Encoder**: Instantly convert English text into its corresponding Morse code representation.
-* **🔡 Morse Code Decoder**: Translate Morse code back into English. The interface supports both direct typing and an interactive tap pad for inputting dots, dashes, and spaces.
-* **🎤 Voice Input**: Utilizes the browser's Web Speech API for accurate speech-to-text, allowing you to speak directly into the translator for both language and Morse code inputs.
-* **🌓 Dual Theme UI**: A sleek, responsive interface featuring both light and dark modes to suit your preference.
-* **📋 Translation History**: Access a history of your past language translations in a convenient modal window.
-* **🚀 Welcome Portal**: A stylish, animated landing page to welcome users and guide them to the different translation modes.
+![Welcome Screen](image_97ec6f.jpg)
 
 ---
 
-## 💻 Tech Stack
+## ✨ Mission Control: Core Features
 
-| Category      | Technology                                                                                                  |
-| ------------- | ----------------------------------------------------------------------------------------------------------- |
-| **Frontend** | HTML5, CSS3, Tailwind CSS, JavaScript                                                                       |
-| **Backend** | Python, Flask                                                                                               |
-| **APIs** | Google Gemini API, Web Speech API                                                                           |
-| **Libraries** | Lucide Icons                                                                                                |
+Our station is equipped with state-of-the-art modules to handle any communication challenge:
+
+* **🧠 AI Language Portal**: Powered by the Google Gemini API, instantly translate spoken or written words between a vast constellation of languages, including Tamil, Telugu, Spanish, and more.
+* **📡 Morse Code Transceiver**:
+    * **Encode**: Convert modern English into the timeless signals of Morse code.
+    * **Decode**: Translate incoming Morse signals back into plain English using a direct text input or our interactive tap pad.
+* **🎙️ Sonic Input (Voice-to-Text)**: Engage your microphone and speak your thoughts directly into the translator. The Web Speech API captures your voice for both language and Morse inputs.
+* **🔊 Audio Playback (Text-to-Speech)**: Hear the pronunciation of any translation or text with the integrated audio playback feature.
+* **- Text File Upload**: Decode entire documents by uploading `.txt` files directly. The system automatically checks if the content is suitable for the selected mode.
+* **🛰️ Captain's Log (Translation History)**: A persistent log of all your language translations is automatically saved. Access your communication history at any time through a sleek pop-up modal.
+* **💫 Dual-Star UI (Light & Dark Themes)**: Switch between a bright starburst theme or a deep space dark mode to suit your visual preferences.
 
 ---
 
-## 🚀 Getting Started
+## 🛠️ Tech Stack & Systems
 
-Follow these instructions to set up and run the project on your local machine.
+This project is built with a fusion of powerful frontend and backend technologies:
+
+* **Bridge (Frontend)**: `HTML5` | `CSS3` | `Tailwind CSS` | `JavaScript`
+* **Engine Room (Backend)**: `Python` | `Flask`
+* **Hyperdrive (APIs)**: `Google Gemini API` | `Web Speech API` | `Web Audio API`
+* **Nav-Computer (Icons)**: `Lucide Icons`
+
+---
+
+## 🚀 Launch Sequence: Getting Started
+
+Follow these instructions to get your own instance of the translator running locally.
 
 ### Prerequisites
 
-* Python 3.7+
-* `pip` package manager
-* A web browser that supports the Web Speech API (e.g., Chrome, Edge)
+* Python 3.7+ & `pip`
+* A browser that supports the Web Speech API (**Google Chrome** or **Microsoft Edge** recommended)
+* A **Google Gemini API Key**
 
-### Installation & Setup
+### Installation & Ignition
 
-1.  **Clone the Repository**
+1.  **Clone the Starship:**
     ```bash
     git clone <your-repository-url>
     cd morsecode
     ```
 
-2.  **Backend Setup**
-    * Navigate to the backend directory:
+2.  **Power Up the Backend Engine:**
+    * Navigate to the backend:
         ```bash
         cd backend
         ```
     * Create and activate a Python virtual environment:
         ```bash
-        # For macOS/Linux
-        python3 -m venv venv
-        source venv/bin/activate
-
         # For Windows
         python -m venv venv
         .\venv\Scripts\activate
         ```
-    * Install the required Python packages from `requirements.txt`:
+    * Install all necessary components:
         ```bash
         pip install -r requirements.txt
         ```
-    * Create a `.env` file in the `backend` directory. This file will store your API key.
-    * Add your Google Gemini API key to the `.env` file. You can obtain a key from [Google AI Studio](https://aistudio.google.com/).
+    * Create a **`.env`** file in the `backend` directory to store your secret key.
+    * Add your Google Gemini API key to it. You can get a free key from [Google AI Studio](https://aistudio.google.com/).
         ```env
-        GEMINI_API_KEY="YOUR_GEMINI_API_KEY_HERE"
+        GEMINI_API_KEY="YOUR_SECRET_GEMINI_API_KEY_HERE"
         ```
-    * Run the Flask application:
-        ```bash
-        flask run
-        ```
-    The backend server will now be running at `http://127.0.0.1:5000`.
 
-3.  **Frontend Setup**
-    * No special setup is required for the frontend. Simply open the `welcome.html` or `index.html` file in your web browser.
+3.  **Engage Both Servers (IMPORTANT):**
+    This application requires **two terminals running simultaneously**.
+
+    * **🚀 Terminal 1 (Backend API @ Port 5000):**
         ```bash
-        # (From the root 'morsecode' directory)
-        open welcome.html
+        # Make sure you are in the 'backend' folder
+        python app.py
+        ```
+    * **🛰️ Terminal 2 (Frontend Server @ Port 8000):**
+        ```bash
+        # Make sure you are in the main 'morsecode' folder
+        python -m http.server
         ```
 
 ---
 
-##  usage
+## 👨‍🚀 How to Use
 
-Once the backend is running and you have opened the frontend in your browser:
+With both servers running, open your browser and navigate to the command bridge:
 
-1.  From the **Welcome Portal**, select the translation mode you wish to use:
-    * Translate Languages
-    * Encode Morse
-    * Decode Morse
-2.  This will take you to the main translator interface (`index.html`). You can switch between modes at any time using the tabs at the top.
-3.  **Language Translation**: Select source and target languages, type or speak your text, and see the translation appear.
-4.  **Morse Encoding/Decoding**: Use the dedicated tabs to convert between English and Morse code. For decoding, you can type the code directly or use the interactive tap pad.
-5.  **Toggle Theme**: Use the sun/moon icon at the top-right to switch between light and dark modes.
-6.  **View History**: Click the history icon to see a list of your previous language translations.
+**`http://localhost:8000/welcome.html`**
+
+From there, select your portal and begin your journey into universal communication!
 
 ---
 
-## 👥 Credits
+## 🧑‍🚀 The Crew
 
-This project was created by **Rohit, Leno & Rahul (RLR)**.
+This project was forged in the stars by **Rohit, Leno & Rahul (RLR)**.
