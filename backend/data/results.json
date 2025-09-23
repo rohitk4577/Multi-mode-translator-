@@ -1,0 +1,66 @@
+[
+  {
+    "id": "602e48dd6333450f870471377770fd73",
+    "timestamp": "2025-09-22T18:55:53.557610Z",
+    "source_lang": "English",
+    "target_lang": "Spanish",
+    "original_text": "hi",
+    "translated_text": "Hola"
+  },
+  {
+    "id": "20746939d63647728b3cda0a294d6c09",
+    "timestamp": "2025-09-22T18:56:08.690130Z",
+    "source_lang": "English",
+    "target_lang": "Spanish",
+    "original_text": "wassup",
+    "translated_text": "\u00bfQu\u00e9 pasa?"
+  },
+  {
+    "id": "213cea22428940b9a9fc435dd6c161f1",
+    "timestamp": "2025-09-22T18:56:26.783652Z",
+    "source_lang": "English",
+    "target_lang": "Spanish",
+    "original_text": "hello how are you doing",
+    "translated_text": "Hola, \u00bfc\u00f3mo est\u00e1s?"
+  },
+  {
+    "id": "30d9f3c125c0484fb62da8f9737821ff",
+    "timestamp": "2025-09-22T19:02:39.951282Z",
+    "source_lang": "Tamil",
+    "target_lang": "English",
+    "original_text": "\u0bb5\u0ba3\u0b95\u0bcd\u0b95\u0bae\u0bcd",
+    "translated_text": "Greetings"
+  },
+  {
+    "id": "56ce950b681f47e6b84bb7c466f7a7d9",
+    "timestamp": "2025-09-22T19:13:25.727299Z",
+    "source_lang": "English",
+    "target_lang": "Tamil",
+    "original_text": "Lets misbehave\nCompletely intoxicated\n[Ohhh...]\nTake me slow, take me deep\n[Make me bleed]\nRide this fire, let it keep\n[Let it keep]",
+    "translated_text": "\u0bb5\u0bb0\u0bc1\u0ba4\u0bcd\u0ba4\u0bae\u0bbe\u0b95 \u0ba8\u0b9f\u0ba8\u0bcd\u0ba4\u0bc1 \u0b95\u0bca\u0bb3\u0bcd\u0bb5\u0bcb\u0bae\u0bcd\n\u0bae\u0bc1\u0bb4\u0bc1\u0bae\u0bc8\u0baf\u0bbe\u0b95 \u0bae\u0baf\u0b95\u0bcd\u0b95\u0bae\u0b9f\u0bc8\u0ba8\u0bcd\u0ba4\u0bc1\n[\u0b93\u0bb9\u0bcd\u0bb9\u0bcd...]\n\u0b8e\u0ba9\u0bcd\u0ba9\u0bc8 \u0bae\u0bc6\u0ba4\u0bc1\u0bb5\u0bbe\u0b95, \u0b86\u0bb4\u0bae\u0bbe\u0b95 \u0b85\u0bb4\u0bc8\u0ba4\u0bcd\u0ba4\u0bc1\u0b9a\u0bcd \u0b9a\u0bc6\u0bb2\u0bcd\n[\u0b8e\u0ba9\u0bcd\u0ba9\u0bc8 \u0b87\u0bb0\u0ba4\u0bcd\u0ba4\u0bae\u0bcd \u0bb5\u0b9f\u0bbf\u0b95\u0bcd\u0b95 \u0bb5\u0bc8]\n\u0b87\u0ba8\u0bcd\u0ba4 \u0ba8\u0bc6\u0bb0\u0bc1\u0baa\u0bcd\u0baa\u0bc8 \u0b9a\u0bb5\u0bbe\u0bb0\u0bbf \u0b9a\u0bc6\u0baf\u0bcd, \u0b85\u0ba4\u0bc8 \u0ba4\u0bca\u0b9f\u0bb0 \u0bb5\u0bbf\u0b9f\u0bc1\n[\u0b85\u0ba4\u0bc8 \u0ba4\u0bca\u0b9f\u0bb0 \u0bb5\u0bbf\u0b9f\u0bc1]"
+  },
+  {
+    "id": "c000ce8892e64579bc3a85ad1bb8b012",
+    "timestamp": "2025-09-22T19:25:26.130451Z",
+    "source_lang": "English",
+    "target_lang": "Tamil",
+    "original_text": "Lets misbehave\nCompletely intoxicated\n[Ohhh...]\nTake me slow, take me deep\n[Make me bleed]\nRide this fire, let it keep\n[Let it keep]",
+    "translated_text": "\u0bb5\u0bb0\u0bc1\u0ba4\u0bcd\u0ba4\u0bae\u0bbe\u0b95 \u0ba8\u0b9f\u0ba8\u0bcd\u0ba4\u0bc1 \u0b95\u0bca\u0bb3\u0bcd\u0bb5\u0bcb\u0bae\u0bcd\n\u0bae\u0bc1\u0bb4\u0bc1\u0bae\u0bc8\u0baf\u0bbe\u0b95 \u0bae\u0baf\u0b95\u0bcd\u0b95\u0bae\u0b9f\u0bc8\u0ba8\u0bcd\u0ba4\u0bc1\n[\u0b93\u0bb9\u0bcd\u0bb9\u0bcd...]\n\u0b8e\u0ba9\u0bcd\u0ba9\u0bc8 \u0bae\u0bc6\u0ba4\u0bc1\u0bb5\u0bbe\u0b95, \u0b86\u0bb4\u0bae\u0bbe\u0b95 \u0b85\u0bb4\u0bc8\u0ba4\u0bcd\u0ba4\u0bc1\u0b9a\u0bcd \u0b9a\u0bc6\u0bb2\u0bcd\n[\u0b8e\u0ba9\u0bcd\u0ba9\u0bc8 \u0b87\u0bb0\u0ba4\u0bcd\u0ba4\u0bae\u0bcd \u0bb5\u0b9f\u0bbf\u0baf\u0b9a\u0bcd \u0b9a\u0bc6\u0baf\u0bcd]\n\u0b87\u0ba8\u0bcd\u0ba4 \u0ba8\u0bc6\u0bb0\u0bc1\u0baa\u0bcd\u0baa\u0bc8 \u0b9a\u0bb5\u0bbe\u0bb0\u0bbf \u0b9a\u0bc6\u0baf\u0bcd, \u0b85\u0ba4\u0bc8 \u0ba4\u0bca\u0b9f\u0bb0 \u0bb5\u0bbf\u0b9f\u0bc1\n[\u0b85\u0ba4\u0bc8 \u0ba4\u0bca\u0b9f\u0bb0 \u0bb5\u0bbf\u0b9f\u0bc1]"
+  },
+  {
+    "id": "dbf97486f4ce483d82a06a9629c0d1da",
+    "timestamp": "2025-09-22T19:39:50.533365Z",
+    "source_lang": "English",
+    "target_lang": "Tamil",
+    "original_text": "hello",
+    "translated_text": "\u0bb5\u0ba3\u0b95\u0bcd\u0b95\u0bae\u0bcd"
+  },
+  {
+    "id": "591bbad6c4f2455a9eb225b37fe75c21",
+    "timestamp": "2025-09-22T19:40:04.959927Z",
+    "source_lang": "English",
+    "target_lang": "Tamil",
+    "original_text": "hello this is 24/7 news channel",
+    "translated_text": "\u0bb9\u0bb2\u0bcb \u0b87\u0ba4\u0bc1 24/7 \u0b9a\u0bc6\u0baf\u0bcd\u0ba4\u0bbf \u0b9a\u0bc7\u0ba9\u0bb2\u0bcd"
+  }
+]
